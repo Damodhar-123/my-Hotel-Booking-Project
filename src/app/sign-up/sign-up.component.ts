@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataServiceService } from '../data-service.service';
 
 @Component({
@@ -13,11 +14,14 @@ export class SignUpComponent {
  passMatch: boolean = false;
   password: any;
   confirmPassword: any;
-constructor(private fb :FormBuilder , private dataservice:DataServiceService){
+  endPoint: any;
+constructor(private fb :FormBuilder , private dataservice:DataServiceService,
+  private router:Router){
  
 }
 
 ngOnInit(){
+  this.endPoint =this.dataservice.endPoint;
   this.signUp();
   
 }
@@ -37,11 +41,28 @@ signUp(){
   
 }
 submit(){
-   let endpoint = 'admin';
-  this.dataservice.postApiCall(endpoint,this.signUpForm.value).subscribe(response =>{})
+  //  let endpoint = 'admin';
+  this.dataservice.postApiCall(this.endPoint,this.signUpForm.value).subscribe(response =>{})
+ console.log(this.signUpForm.value);
 
+
+ 
+ if (this.endPoint == 'admin') {
+  this.router.navigateByUrl('/admin/loginsuccess')
+}
+else if (this.endPoint == 'owner') {
+  this.router.navigateByUrl('/owner/loginsuccess')
+}
+else {
+  this.router.navigateByUrl('/user/loginsuccess')
+}
+
+//  if( this.signUpForm.valid){
+//      this.router.navigateByUrl('/loginsuccess')
+//  }
+//  else{
   
-  console.log(this.signUpForm.value);
+//  }
   
 }
 visiblity(){
@@ -70,5 +91,8 @@ confirmpasswordValidation(confirmpass:any){
    this.passMatch = true;
   }
 }
+back(){
+  this.router.navigateByUrl('/signin');
+  }
 
 }

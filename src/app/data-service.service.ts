@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 export class DataServiceService {
 
   url='http://localhost:3000/';
-  endPoint: any;
-
-  Data: any;
+  endPoint:any;
+  signInOrSignUp:any;
+  // Data: any;
   constructor(private http:HttpClient) {
     
 

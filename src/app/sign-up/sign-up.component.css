@@ -4,7 +4,7 @@
     padding: 10px;
     width: 30%;
     height:fit-content;
-    margin: 20px 120px;
+    margin:auto;
     background-color: rgb(236, 240, 102);
 }
 
@@ -15,4 +15,10 @@ mat-form-field {
 mat-radio-group{
     width: 80%;
     text-align: left;
+}
+.signUpPage{
+    /* height: auto;
+    width: auto; */
+    background-image: url("../../assets/Images/blue-shade.jpg");
+    background-size: cover;
 }

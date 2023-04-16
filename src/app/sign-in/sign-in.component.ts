@@ -10,9 +10,9 @@ import { DataServiceService } from '../data-service.service';
 })
 export class SignInComponent {
   loginform!: FormGroup;
-  // endPoint:any;
+   endPoint:any;
   getApiData: any;
-  endPoint='admin';
+  // endPoint='admin';
   
   
 
@@ -21,6 +21,8 @@ export class SignInComponent {
 
   }
   ngOnInit(){
+   this.endPoint =this.dataservice.endPoint;
+
     this.login();
 }
  login(){
@@ -43,12 +45,36 @@ export class SignInComponent {
    return ele.name === this.loginform.value.username && ele.Password === this.loginform.value.password
   })
   if(loginData){
-    alert('login successfully');
-    this.router.navigateByUrl('/loginsuccess')
+    
+    if (this.endPoint == 'admin') {
+      alert('login successfully');
+      this.router.navigateByUrl('/admin/loginsuccess')
+    }
+    else if (this.endPoint == 'owner') {
+      alert('login successfully');
+      this.router.navigateByUrl('/owner/loginsuccess')
+    }
+    else {
+      this.router.navigateByUrl('/user/loginsuccess')
+    }
+
+    // alert('login successfully');
+    // this.router.navigateByUrl('/loginsuccess')
   }
   else{
-    alert('User not Fount')
+    alert('User Not Found')
     this.router.navigateByUrl('/signin')
+  }
+ }
+ back(){
+  if( this.endPoint === 'admin'){
+    this.router.navigateByUrl('/admin')
+  }
+  else if( this.endPoint === 'owner'){
+    this.router.navigateByUrl('/owner')
+  }
+  else{
+    this.router.navigateByUrl('/user')
   }
  }
 }
