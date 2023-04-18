@@ -28,7 +28,7 @@ export class LoginsuccessComponent {
       }
     }
     viewHotelList(){
-
+       this.router.navigateByUrl('/hotel-list')
     }
   }
 

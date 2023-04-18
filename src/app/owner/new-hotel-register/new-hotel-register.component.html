@@ -1,0 +1,66 @@
+<p>new-hotel-register works!</p>
+<form [formGroup]="hotelRegistration" autocomplete="on">
+  <H2>Hotel Register</H2>
+
+<mat-form-field >
+    <mat-label>HotelName</mat-label>
+    <input matInput type="text" formControlName="hotelName" >
+ 
+  </mat-form-field><br>
+
+  <mat-form-field >
+    <mat-label>OwnerName</mat-label>
+    <input matInput type="text" formControlName="ownerName" >
+ 
+  </mat-form-field><br>
+
+  <mat-form-field >
+    <mat-label>HotelAddress</mat-label>
+    <input matInput type="text" formControlName="hotelAddress" >
+ 
+  </mat-form-field><br>
+
+  <mat-form-field >
+    <mat-label>HotelContactNo</mat-label>
+    <input matInput type="text" formControlName="hotelContactNo" >
+ 
+  </mat-form-field><br>
+
+  <mat-form-field >
+    <mat-label>HotelEmailId</mat-label>
+    <input matInput type="text" formControlName="hotelEmail" >
+ 
+  </mat-form-field><br>
+
+  <mat-form-field >
+    <mat-label>Password</mat-label>
+    <input matInput type="text" formControlName="password" >
+ 
+  </mat-form-field><br>
+
+  <mat-form-field >
+    <mat-label>TotalRooms</mat-label>
+    <input matInput type="text" formControlName="totalRooms" >
+ 
+  </mat-form-field><br>
+
+  <mat-form-field >
+    <mat-label>Speciality</mat-label>
+    <input matInput type="text" formControlName="speciality" >
+ 
+  </mat-form-field><br>
+
+
+    <!-- <mat-label>Types Of Rooms</mat-label>
+    <mat-checkbox formControlName="Ac">AC</mat-checkbox> <br>
+    <mat-checkbox formControlName="nonAc">Non-AC</mat-checkbox> <br>
+  -->
+  
+  <button  mat-raised-button color="warn" (click)="submit()">Submit</button>
+
+
+
+
+
+
+</form>

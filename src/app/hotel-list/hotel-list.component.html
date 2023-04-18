@@ -1,0 +1,16 @@
+<p>hotel-list works!</p>
+<table>
+    <tr>
+    <th *ngFor="let heading of headings">{{heading}}</th>
+    </tr>
+    <tr *ngFor="let hotelData of hotelDetails">
+        <td>{{hotelData.hotelName}}</td>
+        <td>{{hotelData.ownerName}}</td>
+        <td>{{hotelData.hotelAddress}}</td>
+        <td>{{hotelData.hotelContactNo}}</td>
+        <td>{{hotelData.hotelEmail}}</td>
+        <td>{{hotelData.password}}</td>
+        <td>{{hotelData.totalRooms}}</td>
+        <td>{{hotelData.speciality}}</td>
+    </tr>
+</table>

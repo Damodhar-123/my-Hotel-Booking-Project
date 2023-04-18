@@ -22,6 +22,7 @@ export class SignInComponent {
   }
   ngOnInit(){
    this.endPoint =this.dataservice.endPoint;
+   this.dataservice.signInOrSignUp;
 
     this.login();
 }

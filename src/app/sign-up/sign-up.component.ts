@@ -22,6 +22,7 @@ constructor(private fb :FormBuilder , private dataservice:DataServiceService,
 
 ngOnInit(){
   this.endPoint =this.dataservice.endPoint;
+  this.dataservice.signInOrSignUp;
   this.signUp();
   
 }
