@@ -22,13 +22,13 @@ export class SignInComponent {
   }
   ngOnInit(){
    this.endPoint =this.dataservice.endPoint;
-   this.dataservice.signInOrSignUp;
+  
 
     this.login();
 }
  login(){
  this.loginform = this.fb.group({
-  username:['',[Validators.required, Validators.minLength(2),Validators.pattern("[a-zA-Z]*$")]],
+  name:['',[Validators.required, Validators.minLength(2),Validators.pattern("[a-zA-Z]*$")]],
   password:['',[Validators.required]]
   })
 //  let endPoint = this.dataservice.Data;
@@ -43,7 +43,7 @@ export class SignInComponent {
     
   
   let loginData = this.getApiData.find((ele:any)=>{
-   return ele.name === this.loginform.value.username && ele.Password === this.loginform.value.password
+   return ele.name === this.loginform.value.name && ele.Password === this.loginform.value.password
   })
   if(loginData){
     
@@ -53,6 +53,7 @@ export class SignInComponent {
     }
     else if (this.endPoint == 'owner') {
       alert('login successfully');
+      this.dataservice.ownerName = this.loginform.value.name;
       this.router.navigateByUrl('/owner/loginsuccess')
     }
     else {
@@ -68,6 +69,7 @@ export class SignInComponent {
   }
  }
  back(){
+  this.dataservice.signInOrSignUp;
   if( this.endPoint === 'admin'){
     this.router.navigateByUrl('/admin')
   }

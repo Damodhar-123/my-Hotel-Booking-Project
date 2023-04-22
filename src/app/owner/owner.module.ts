@@ -10,6 +10,8 @@ import { NewHotelRegisterComponent } from './new-hotel-register/new-hotel-regist
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCardModule } from "@angular/material/card";
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule
+    
+    
   ]
 })
 export class OwnerModule { }

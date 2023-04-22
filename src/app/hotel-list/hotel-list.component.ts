@@ -13,7 +13,10 @@ export class HotelListComponent {
   hotelEndPoint='hotelDetails';
   hotelDetails: any;
   
-  headings=['hotelName','ownerName','hotelContactNo','hotelAddress','hotelEmail','password','totalRooms','speciality'];
+  headings=['HotelName','OwnerName','HotelContactNo','HotelAddress','HotelEmail','TotalRooms','Speciality'];
+  endpoint: any;
+  inputBoxValue:any;
+  hotelDetailsById: any;
  
  
   
@@ -21,6 +24,7 @@ export class HotelListComponent {
      private router: Router){}
 
 ngOnInit(){
+  this.endpoint = this.dataservice.endPoint;
   this.hotelData();
 }
   async hotelData(){
@@ -29,8 +33,35 @@ ngOnInit(){
     console.log('hotelDetails',this.hotelDetails);
     
   }
+  async delete(id:any){
+    await this.dataservice.deleteApiCall(this.hotelEndPoint,id).toPromise();
+    this.hotelData();
 
-  
+  }
+
+    async editJourney(id:number){
+      this.dataservice.editId = id;
+      this.dataservice.editJourney = true;
+     
+     this.hotelDetailsById =  await this.dataservice.getApiCallData(this.hotelEndPoint, id).toPromise();
+       console.log('  this.hotelDetailsById-->',  this.hotelDetailsById);
+       this.dataservice.hotelDetailsById =  this.hotelDetailsById ;
+       this.router.navigateByUrl('/owner/newHotelRegistration');
+    
+    
+  }
+
+  Back(){
+    if (this.endpoint == 'admin') {
+      this.router.navigateByUrl('/admin/loginsuccess');
+    }
+    else if (this.endpoint == 'owner') {
+      this.router.navigateByUrl('/owner/loginsuccess');
+    }
+    else {
+      this.router.navigateByUrl('/owner/loginsuccess');
+    }
+  }
 
 }
 

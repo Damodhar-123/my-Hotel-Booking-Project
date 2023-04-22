@@ -2,4 +2,25 @@ table,th,tr,td{
     border: 1px solid red;
     background-color: rgb(162, 222, 224);
     border-collapse: collapse;
+    
+}
+.searchbox{
+    text-align: center;
+    margin-bottom: -20px;
+    margin-left: 60px;
+    padding: 00;
+}
+.hotelListPage{
+    background-image: url("../../assets/Images/background-solid.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+td{
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+}
+table{
+    width: 90%;
 }

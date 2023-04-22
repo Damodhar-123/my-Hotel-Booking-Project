@@ -16,10 +16,11 @@ export class LoginsuccessComponent {
   }
   ngOnInit(){
     this.endPoint =this.dataservice.endPoint;
-    this.signInOrSignUp = this.dataservice.signInOrSignUp;
+    
   }
   
     back(){
+      this.signInOrSignUp = this.dataservice.signInOrSignUp;
       if(this.signInOrSignUp =='signup'){
         this.router.navigateByUrl("/signup")
       }

@@ -29,7 +29,7 @@ ngOnInit(){
 signUp(){
   this.signUpForm = this.fb.group({
     // name:['',[Validators.required]]
-    name:['',[Validators.required,Validators.minLength(3),Validators.pattern('[A-Za-z]*')]],
+    name:['',[Validators.required,Validators.minLength(3),Validators.pattern('[A-Za-z ]*')]],
     mobile:['',[ Validators.required, Validators.minLength(10),Validators.pattern('[0-9]*'),Validators.maxLength(10)]],
     Password:['',[Validators.required,Validators.minLength(8),Validators.pattern('[a-z0-9@#$-]*$')]],
     confirmPassword:['',[Validators.required]],

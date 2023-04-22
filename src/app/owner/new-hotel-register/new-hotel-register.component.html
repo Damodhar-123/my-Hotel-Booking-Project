@@ -1,46 +1,61 @@
-<p>new-hotel-register works!</p>
-<form [formGroup]="hotelRegistration" autocomplete="on">
-  <H2>Hotel Register</H2>
+
+<div class="main">
+  <button mat-raised-button color="primary" routerLink="/owner/loginsuccess">Back</button>
+<form class="hotelRegistration-Container"[formGroup]="hotelRegistration" autocomplete="on">
+  <h1>New Hotel Register</h1>
 
 <mat-form-field >
     <mat-label>HotelName</mat-label>
     <input matInput type="text" formControlName="hotelName" >
+    <mat-error *ngIf="hotelRegistration.get('hotelName')?. touched && hotelRegistration.get('hotelName')?.errors?.['required']  "> Hotel Name is required</mat-error>
+    <mat-error *ngIf="hotelRegistration.get('hotelName')?.errors?.['pattern']  "> Please Enter Alphabets only</mat-error>
+    <mat-error *ngIf="hotelRegistration.get('hotelName')?.errors?.['minlength'] "> Minimum 02 Charactors required</mat-error>
+
  
   </mat-form-field><br>
 
   <mat-form-field >
     <mat-label>OwnerName</mat-label>
     <input matInput type="text" formControlName="ownerName" >
- 
+    <mat-error *ngIf="hotelRegistration.get('ownerName')?. touched && hotelRegistration.get('ownerName')?.errors?.['required']  "> Owner Name is required</mat-error>
+    <mat-error *ngIf="hotelRegistration.get('ownerName')?.errors?.['pattern']  "> Please Enter Alphabets only</mat-error>
+    <mat-error *ngIf="hotelRegistration.get('ownerName')?.errors?.['minlength'] "> Minimum 02 Charactors required</mat-error>
+    
+
   </mat-form-field><br>
 
   <mat-form-field >
     <mat-label>HotelAddress</mat-label>
     <input matInput type="text" formControlName="hotelAddress" >
+    <mat-error *ngIf="hotelRegistration.get('hotelAddress')?. touched && hotelRegistration.get('hotelAddress')?.errors?.['required']  "> Address is required</mat-error>
+
  
   </mat-form-field><br>
 
   <mat-form-field >
     <mat-label>HotelContactNo</mat-label>
     <input matInput type="text" formControlName="hotelContactNo" >
+    <mat-error *ngIf="hotelRegistration.get('hotelContactNo')?. touched && hotelRegistration.get('hotelContactNo')?.errors?.['required']  "> Please Enter Contact Number </mat-error>
+    <mat-error *ngIf="hotelRegistration.get('hotelContactNo')?.errors?.['pattern']  "> Please Enter Numbers only</mat-error>
+    <mat-error *ngIf="hotelRegistration.get('hotelContactNo')?.errors?.['minlength'] "> Minimum 10 Digits required</mat-error>
+    <mat-error *ngIf="hotelRegistration.get('hotelContactNo')?.errors?.['maxlength'] "> Maximum 10 Digits Allowed</mat-error>
+    
  
   </mat-form-field><br>
 
-  <mat-form-field >
+  <mat-form-field > 
     <mat-label>HotelEmailId</mat-label>
     <input matInput type="text" formControlName="hotelEmail" >
- 
-  </mat-form-field><br>
+    <mat-error *ngIf="hotelRegistration.get('hotelEmail')?. touched && hotelRegistration.get('hotelEmail')?.errors?.['required']  "> Please Enter email Address</mat-error>
 
-  <mat-form-field >
-    <mat-label>Password</mat-label>
-    <input matInput type="text" formControlName="password" >
  
   </mat-form-field><br>
 
   <mat-form-field >
     <mat-label>TotalRooms</mat-label>
     <input matInput type="text" formControlName="totalRooms" >
+    <mat-error *ngIf="hotelRegistration.get('totalRooms')?. touched && hotelRegistration.get('totalRooms')?.errors?.['required']  "> Please enter qty of Rooms</mat-error>
+
  
   </mat-form-field><br>
 
@@ -56,7 +71,7 @@
     <mat-checkbox formControlName="nonAc">Non-AC</mat-checkbox> <br>
   -->
   
-  <button  mat-raised-button color="warn" (click)="submit()">Submit</button>
+  <button  mat-raised-button color="warn" [disabled]="hotelRegistration.invalid" (click)="submit()">Submit</button>
 
 
 
@@ -64,3 +79,4 @@
 
 
 </form>
+</div>

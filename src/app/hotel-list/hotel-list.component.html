@@ -1,16 +1,33 @@
-<p>hotel-list works!</p>
-<table>
+
+<div class="hotelListPage">
+<button mat-raised-button color="warn" (click)="Back()">Back</button>
+<br>
+
+<mat-form-field class="searchbox">
+  <mat-icon matSuffix>search</mat-icon>
+  <input matInput [(ngModel)]="inputBoxValue">
+</mat-form-field>
+
+<table >
     <tr>
-    <th *ngFor="let heading of headings">{{heading}}</th>
+    <th  *ngFor="let heading of headings">{{heading}}</th>
+    
+    <th *ngIf="endpoint=='admin'">Delete</th>
+    <th *ngIf="endpoint=='admin'">Edit</th>
     </tr>
-    <tr *ngFor="let hotelData of hotelDetails">
-        <td>{{hotelData.hotelName}}</td>
-        <td>{{hotelData.ownerName}}</td>
-        <td>{{hotelData.hotelAddress}}</td>
-        <td>{{hotelData.hotelContactNo}}</td>
-        <td>{{hotelData.hotelEmail}}</td>
-        <td>{{hotelData.password}}</td>
-        <td>{{hotelData.totalRooms}}</td>
-        <td>{{hotelData.speciality}}</td>
+    <tr *ngFor="let hotelData of hotelDetails | searchtext:inputBoxValue">
+
+        <td class="table-primary" scope="row">{{hotelData.hotelName}}</td>
+        <td  class="table-primary" scope="row">{{hotelData.ownerName}}</td>
+        <td scope ="row">{{hotelData.hotelContactNo}}</td>
+        <td scope="row">{{hotelData.hotelAddress}}</td>
+        <td scope="row">{{hotelData.hotelEmail}}</td>
+      
+        <td scope="row">{{hotelData.totalRooms}}</td>
+        <td scope="row">{{hotelData.speciality}}</td>
+        <td scope="row" *ngIf="endpoint =='admin'"> <i class="material-icons" (click)="delete(hotelData.id)">delete</i></td>
+        <td scope="row" *ngIf="endpoint =='admin'"> <i class="material-icons" (click)="editJourney(hotelData.id)">edit</i></td>
+
     </tr>
 </table>
+</div>

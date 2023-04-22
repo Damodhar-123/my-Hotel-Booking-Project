@@ -8,10 +8,12 @@ import {MatRadioModule} from '@angular/material/radio';
 import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
 
 
+
 @NgModule({
   declarations: [
     AdminComponent,
-    LoginsuccessComponent
+    LoginsuccessComponent,
+    
   ],
   imports: [
     CommonModule,

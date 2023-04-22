@@ -16,6 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
+import { SearchtextPipe } from './searchtext.pipe';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { HotelListComponent } from './hotel-list/hotel-list.component';
     HomeComponent,
     SignInComponent,
     SignUpComponent,
-    HotelListComponent
+    HotelListComponent,
+    SearchtextPipe
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { HotelListComponent } from './hotel-list/hotel-list.component';
     ReactiveFormsModule,
     MatIconModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    MatTableModule
     
   ],
   providers: [],
