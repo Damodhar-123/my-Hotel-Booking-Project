@@ -42,7 +42,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     HttpClientModule,
     RouterModule,
-    MatTableModule
+    MatTableModule,
+    
     
   ],
   providers: [],

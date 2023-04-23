@@ -53,11 +53,38 @@ registrationForm(){
 }
 submit(){
    let endPoint= 'hotelDetails';
-  this.dataservice.postApiCall(endPoint,this.hotelRegistration.value).subscribe(res=>{})
-  console.log(this.hotelRegistration.value);
+   // new Hotel registration post Api Call
+   if(this.isEditJourney == false){
+    this.dataservice.postApiCall(endPoint,this.hotelRegistration.value).subscribe(res=>{})
+    console.log(this.hotelRegistration.value);
+    
+   }
+  // this.dataservice.postApiCall(endPoint,this.hotelRegistration.value).subscribe(res=>{})
+  // console.log(this.hotelRegistration.value);
+else{  
+  // if edit details Patch Api Call
+  let data = {
+    hotelContactNo : this.hotelRegistration.value.hotelContactNo,
+    totalRooms : this.hotelRegistration.value.totalRooms,
+    hotelName :this.hotelRegistration.value.hotelName,
+    ownerName : this.hotelRegistration.value.ownerName,
+    hotelAddress : this.hotelRegistration.value.hotelAddress,
+    hotelEmail : this.hotelRegistration.value.hotelEmail,
+    speciality : this.hotelRegistration.value.speciality
 
-   
+  }
+  this.dataservice.patchApiCall(endPoint,data,this.editId).subscribe(res=>{})
+} 
+this.endPoint = this.dataservice.endPoint;
+   if( this.dataservice.endPoint == 'owner'){
+   alert('Hotel Details Update Successfully')
  this.router.navigateByUrl('/owner/loginsuccess')
+   }
+ else{
+  alert('Hotel Details Changes Successfully')
+  this.router.navigateByUrl('/admin/loginsuccess')
+ }
+
    
 }
 
