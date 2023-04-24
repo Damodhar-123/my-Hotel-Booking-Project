@@ -1,33 +1,33 @@
-
-<div class="hotelListPage">
+<div class="hotelList">
 <button mat-raised-button color="warn" (click)="Back()">Back</button>
-<br>
-
 <mat-form-field class="searchbox">
   <mat-icon matSuffix>search</mat-icon>
   <input matInput [(ngModel)]="inputBoxValue">
 </mat-form-field>
-
-<table >
+<table class="table">
+  <thead>
     <tr>
-    <th  *ngFor="let heading of headings">{{heading}}</th>
-    
-    <th *ngIf="endpoint=='admin'">Delete</th>
-    <th *ngIf="endpoint=='admin'">Edit</th>
-    </tr>
-    <tr *ngFor="let hotelData of hotelDetails | searchtext:inputBoxValue">
-
-        <td class="table-primary" scope="row">{{hotelData.hotelName}}</td>
-        <td  class="table-primary" scope="row">{{hotelData.ownerName}}</td>
-        <td scope ="row">{{hotelData.hotelContactNo}}</td>
-        <td scope="row">{{hotelData.hotelAddress}}</td>
-        <td scope="row">{{hotelData.hotelEmail}}</td>
+      <th  *ngFor="let heading of headings" scope="col">{{heading}}</th>
+      <th *ngIf="endpoint=='admin'">Delete</th>
+      <th *ngIf="endpoint=='admin'">Edit</th>
+      <th *ngIf="endpoint=='user'">Book Hotel</th>
+   </tr>
+  </thead>
+  <tbody>
+    <tr class="table-primary" *ngFor="let hotelData of hotelDetails | searchtext:inputBoxValue">
       
-        <td scope="row">{{hotelData.totalRooms}}</td>
-        <td scope="row">{{hotelData.speciality}}</td>
-        <td scope="row" *ngIf="endpoint =='admin'"> <i class="material-icons" (click)="delete(hotelData.id)">delete</i></td>
-        <td scope="row" *ngIf="endpoint =='admin'"> <i class="material-icons" (click)="editJourney(hotelData.id)">edit</i></td>
+      <td class="table-primary">{{hotelData.hotelName}}</td>
+      <td class="table-secondary" >{{hotelData.ownerName}}</td>
+      <td class="table-success" >{{hotelData.hotelContactNo}}</td>
+      <td class="table-warning">{{hotelData.hotelAddress}}</td>
+      <td class="table-primary" >{{hotelData.hotelEmail}}</td>
+      <td class="table-success">{{hotelData.totalRooms}}</td>
+      <td class="table-warning" >{{hotelData.speciality}}</td>
+      <td scope="row" *ngIf="endpoint =='admin'"> <i class="material-icons" (click)="delete(hotelData.id)">delete</i></td>
+      <td scope="row" *ngIf="endpoint =='admin'"> <i class="material-icons" (click)="editJourney(hotelData.id)">edit</i></td>
+      <td scope="row" *ngIf="endpoint =='user'" a routerLink="/user/hotelBooking">Book Hotel Here</td>
 
     </tr>
+  </tbody>
 </table>
 </div>

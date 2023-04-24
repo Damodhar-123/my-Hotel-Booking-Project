@@ -15,6 +15,7 @@ export class LoginsuccessComponent {
   ownerName: any;
   hotelEndPoint = 'hotelDetails';
   hotelDetailsById: any;
+  headings=['HotelName','OwnerName','HotelContactNo','HotelAddress','HotelEmail','TotalRooms','Speciality'];
   
   
  constructor(private dataservice:DataServiceService, private router:Router){
@@ -29,7 +30,7 @@ export class LoginsuccessComponent {
 }
 
   back(){
-      if(this.signInOrSignUp =='signIn'){
+      if(this.signInOrSignUp =='signup'){
         this.router.navigateByUrl('/signup');
       }
       else{

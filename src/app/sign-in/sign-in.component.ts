@@ -28,7 +28,7 @@ export class SignInComponent {
 }
  login(){
  this.loginform = this.fb.group({
-  name:['',[Validators.required, Validators.minLength(2),Validators.pattern("[a-zA-Z]*$")]],
+  name:['',[Validators.required, Validators.minLength(2),Validators.pattern("[a-zA-Z ]*$")]],
   password:['',[Validators.required]]
   })
 //  let endPoint = this.dataservice.Data;

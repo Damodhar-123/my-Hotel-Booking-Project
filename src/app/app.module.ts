@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { SearchtextPipe } from './searchtext.pipe';
 import { MatTableModule } from '@angular/material/table';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     RouterModule,
     MatTableModule,
+    NgbModule,
     
     
   ],
