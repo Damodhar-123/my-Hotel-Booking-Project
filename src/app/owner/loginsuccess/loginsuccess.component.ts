@@ -16,6 +16,7 @@ export class LoginsuccessComponent {
   hotelEndPoint = 'hotelDetails';
   hotelDetailsById: any;
   headings=['HotelName','OwnerName','HotelContactNo','HotelAddress','HotelEmail','TotalRooms','Speciality'];
+  userName: any;
   
   
  constructor(private dataservice:DataServiceService, private router:Router){
@@ -26,6 +27,7 @@ export class LoginsuccessComponent {
   this.signInOrSignUp = this.dataservice.signInOrSignUp;
   this.ownerName = this.dataservice.ownerName;
   console.log('ownerName..',this.ownerName);
+  this.userName = this.dataservice.userName;
   
 }
 
@@ -86,6 +88,10 @@ if(this.hotelDetails){
      console.log('  this.hotelDetailsById-->',  this.hotelDetailsById);
      this.dataservice.hotelDetailsById =  this.hotelDetailsById ;
      this.router.navigateByUrl('/owner/newHotelRegistration');
+  }
+  newHotelRegistration(){
+    this.dataservice.editJourney = false;
+    this.router.navigateByUrl('/owner/newHotelRegistration');
   }
  }
  

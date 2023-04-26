@@ -58,8 +58,8 @@
 
       <mat-form-field >
         <mat-label>Confirm Password</mat-label>
-       <input matInput [type]="showPassword ? 'text' : 'password'"  formControlName="confirmPassword" (keyup)=" confirmpasswordValidation($event)">
-      <mat-icon matSuffix (click)="visiblity()">visibility</mat-icon>
+       <input matInput [type]="showConfirmPassword ? 'text' : 'password'"  formControlName="confirmPassword" (keyup)=" confirmpasswordValidation($event)">
+      <mat-icon matSuffix (click)="visiblity1()">visibility</mat-icon>
      </mat-form-field>
      <span style=color:red  *ngIf="passMatch">Password Not Match</span><br>
       <mat-checkbox formControlName="TnC">Accept Terms And Conditions</mat-checkbox> <br>

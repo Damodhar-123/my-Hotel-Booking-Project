@@ -12,13 +12,13 @@
 <br>
 <mat-form-field>
     <mat-label>Password</mat-label>
-      <input matInput  formControlName="password" >
+      <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" >
       <mat-error *ngIf="loginform.get('password')?.touched && loginform.get('password')?.errors?.['required']">Please Enter Password</mat-error>
-
+      <mat-icon matSuffix (click)="visiblity()">visibility</mat-icon>
 </mat-form-field>
 <br>
 <button mat-raised-button color="primary" [disabled]="loginform.invalid" (click)="submit()">Submit</button><br>
-<a routerLink="/signup">Not Have An Account? Click Here</a>
+<a routerLink="/signup">Don't Have An Account? Click Here</a>
 
 </form>
 </div>

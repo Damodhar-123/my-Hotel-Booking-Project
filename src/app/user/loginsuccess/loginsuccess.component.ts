@@ -10,7 +10,7 @@ import { DataServiceService } from 'src/app/data-service.service';
 })
 export class LoginsuccessComponent {
   endPoint: any;
-  signupOrSignIn: any;
+  signInOrSignUp: any;
   userName: any;
   
   constructor( private dataservice:DataServiceService , private router:Router, private http:HttpClient){
@@ -19,12 +19,13 @@ export class LoginsuccessComponent {
   }
   ngOnInit(){
     this.endPoint =this.dataservice.endPoint;
-    this.signupOrSignIn =this.dataservice.signInOrSignUp;
-    this.userName = this.dataservice.formName
+    this.signInOrSignUp =this.dataservice.signInOrSignUp;
+   this.userName = this.dataservice.userName;
+   
   }
 
   back(){
-    if(this.signupOrSignIn =='signup'){
+    if(this.signInOrSignUp =='signup'){
       this.router.navigateByUrl("/signup")
     }
     else{

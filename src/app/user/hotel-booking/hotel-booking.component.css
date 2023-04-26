@@ -1,0 +1,22 @@
+.hotelBookingPage{
+    text-align: center;
+    margin: auto;
+    width: 40%;
+    background-color: aqua;
+    height:700px;
+    
+
+
+}
+mat-form-field{
+    width: 70%;
+}
+.SelectTag{
+    width: 70%;
+    height: 40px;
+}
+.main{
+    background-image: url('../../../assets/Images/blue-shade.jpg');
+    background-size: cover;
+    min-height: 100%;
+}

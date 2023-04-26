@@ -15,6 +15,7 @@ export class SignUpComponent {
   password: any;
   confirmPassword: any;
   endPoint: any;
+  showConfirmPassword: any;
 constructor(private fb :FormBuilder , private dataservice:DataServiceService,
   private router:Router){
  
@@ -35,7 +36,7 @@ signUp(){
     confirmPassword:['',[Validators.required]],
     TnC:   ['', [Validators.requiredTrue]],
     gender:[],
-    email:['', [Validators.required]],
+    email:['', [Validators.required,Validators.email]],
     city:['',[Validators.required]]
 
   })
@@ -68,6 +69,9 @@ else {
 }
 visiblity(){
   this.showPassword = !this.showPassword;
+}
+visiblity1(){
+  this.showConfirmPassword = !this.showConfirmPassword;
 }
 passwordValidation(pass:any){
   this.password = pass.target.value;

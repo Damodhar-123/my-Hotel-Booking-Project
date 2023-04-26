@@ -10,12 +10,16 @@ import { DataServiceService } from 'src/app/data-service.service';
 export class LoginsuccessComponent {
   signInOrSignUp: any;
   endPoint: any;
- 
+  loginform: any;
+  // formName : any;
+  userName: any;
   constructor(private dataservice:DataServiceService, private router: Router){
 
   }
   ngOnInit(){
     this.endPoint =this.dataservice.endPoint;
+    this.userName = this.dataservice.userName;
+  
     
   }
   

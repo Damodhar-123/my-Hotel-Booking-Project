@@ -1,1 +1,85 @@
-<p>hotel-booking works!</p>
+<div class="main">
+  <button mat-raised-button color="accent" routerLink="/user/loginsuccess">Back</button>
+<form class="hotelBookingPage" [formGroup]="bookHotel">
+          <h2>Book My Hotel </h2>
+        
+<mat-form-field>
+    <mat-label>User Name</mat-label>
+      <input matInput  formControlName="name" >
+      <mat-error *ngIf="bookHotel.get('name')?.touched && bookHotel.get('name')?.errors?.['required']">Name is Required</mat-error>
+      <mat-error *ngIf="bookHotel.get('name')?.errors?.['minlength']">minimun 2 charactors Required</mat-error>
+      <mat-error *ngIf="bookHotel.get('name')?.errors?.['pattern']">Please Enter Alphabets Only</mat-error>
+</mat-form-field><br>
+
+<mat-form-field>
+    <mat-label>Mobile No:</mat-label>
+      <input matInput  formControlName="mobileNo" >
+      <mat-error *ngIf="bookHotel.get('mobileNo')?.touched && bookHotel.get('mobileNo')?.errors?.['required']">Please Enter Mobile Number</mat-error>
+      <mat-error *ngIf="bookHotel.get('mobileNo')?.errors?.['minlength']">Mobile no Should Have 10 Digits</mat-error>
+      <mat-error *ngIf="bookHotel.get('mobileNo')?.errors?.['pattern']">Please Enter Numbers Only</mat-error>
+</mat-form-field><br>
+
+<mat-form-field>
+  <mat-label>Password:</mat-label>
+    <input matInput  formControlName="password" >
+    <mat-error *ngIf="bookHotel.get('password')?.touched && bookHotel.get('password')?.errors?.['required']">Password is Required</mat-error>
+    <mat-error *ngIf="bookHotel.get('password')?.errors?.['minlength']">Minimun 08 Digits Required</mat-error>
+</mat-form-field><br>
+
+
+<mat-form-field>
+    <mat-label>Address:</mat-label>
+      <input matInput  formControlName="address" >
+      <mat-error *ngIf="bookHotel.get('address')?.touched && bookHotel.get('address')?.errors?.['required']">Address is Required</mat-error>
+</mat-form-field><br>
+  
+<mat-form-field>
+    <mat-label>Aadhar Card No:</mat-label>
+      <input matInput  formControlName="aadharNo" >
+      <mat-error *ngIf="bookHotel.get('aadharNo')?.touched && bookHotel.get('aadharNo')?.errors?.['required']">Aadhar No is Required</mat-error>
+      <mat-error *ngIf="bookHotel.get('aadharNo')?.errors?.['minlength'] && !bookHotel.get('aadharNo')?.errors?.['pattern']">Aadhar No Should Have 12 Digits</mat-error>
+      <mat-error *ngIf="bookHotel.get('aadharNo')?.errors?.['pattern']">Please Enter Numbers Only</mat-error>
+      <mat-error *ngIf="bookHotel.get('aadharNo')?.errors?.['maxlength']"> Maximum 12 Digits Allowed</mat-error>
+</mat-form-field><br>
+ 
+
+<!-- <mat-label>Select Type of Room</mat-label><br>
+  <select class="SelectTag"  formControlName="roomTypes" > 
+    <option *ngFor="let roomTypes of rooms" [value]="roomTypes">{{roomTypes}}</option>
+  </select> -->
+
+<mat-form-field appearance="fill">
+  <mat-label>Room Types</mat-label>
+  <mat-select formControlName="roomTypes">
+    <mat-option *ngFor="let roomTypes of rooms" [value]="roomTypes">
+      {{roomTypes}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  <br>
+  <mat-form-field>
+  <mat-label>CheckIn Date:</mat-label>
+  <input matInput type="date" formControlName="checkIn">
+</mat-form-field><br>
+<mat-form-field>
+  <mat-label>CheckOut Date:</mat-label>
+  <input matInput type="date" formControlName="checkOut">
+</mat-form-field><br>
+
+
+  <mat-form-field>
+    <mat-label>Booking Amount:</mat-label> 
+   <input matInput  formControlName="amount" >
+      <mat-error *ngIf="bookHotel.get('amount')?.touched && bookHotel.get('amount')?.errors?.['required']">Need to Pay Booking Amount</mat-error>
+   
+    </mat-form-field><br>
+
+  
+
+  
+
+
+<button mat-raised-button color = "primary" (click)="submit()" *ngIf="bookHotel.valid"  >Submit</button>
+
+</form>
+</div>

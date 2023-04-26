@@ -1,13 +1,13 @@
 <div class="ownerLoginPage">
-<h2>welcome To The Owner Page</h2>
+<h2>Welcome   {{userName}}</h2>
 
 <button mat-raised-button color="primary" (click)="back()">Back</button>
-<button mat-raised-button color="accent" routerLink="/owner/newHotelRegistration">Hotel Registration</button>
+<button mat-raised-button color="accent" (click)="newHotelRegistration()">Hotel Registration</button>
 <button mat-raised-button color="primary" (click)="viewHotels()">View All Hotels</button>
 <button mat-raised-button color="warn" (click)="viewMyHotels()">View My Hotels</button>
 
   <div *ngIf="this.hotelDetailsByOwner.length !=0">
- <table class="table"   >
+ <table class="table" >
   <thead >
     <tr>
       <th *ngFor="let heading of headings"  scope="col">{{heading}}</th>

@@ -14,7 +14,8 @@ export class DataServiceService {
   editJourney: boolean = false;
   hotelDetailsById: any;
   newRegistration: boolean = false;
-   formName!:string;
+  //  formName! :any;
+  userName!: any;
   constructor(private http:HttpClient) {
     
 

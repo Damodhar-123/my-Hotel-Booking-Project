@@ -31,3 +31,15 @@ table{
     color: rgb(15, 9, 9);
     border: 1px black solid;
 }
+button{
+    margin: 5px;
+    border-radius: 10px;
+    background-color: rgb(211, 245, 22);
+    font-size: 15px;
+}
+button:hover{
+    background-color: rgb(237, 14, 245);
+}
+td:hover{
+    background-color: aqua;
+}

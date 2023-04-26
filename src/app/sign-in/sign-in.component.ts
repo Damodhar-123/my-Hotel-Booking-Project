@@ -12,6 +12,7 @@ export class SignInComponent {
   loginform!: FormGroup;
    endPoint:any;
   getApiData: any;
+  showPassword:boolean =false;
   // endPoint='admin';
   
   
@@ -22,7 +23,6 @@ export class SignInComponent {
   }
   ngOnInit(){
    this.endPoint =this.dataservice.endPoint;
-  
 
     this.login();
 }
@@ -31,22 +31,18 @@ export class SignInComponent {
   name:['',[Validators.required, Validators.minLength(2),Validators.pattern("[a-zA-Z ]*$")]],
   password:['',[Validators.required]]
   })
-//  let endPoint = this.dataservice.Data;
-//  console.log('endpoint',endPoint);
- 
+
  }
    async submit(){
   console.log('login',this.loginform.value);
   this.getApiData = await this.dataservice.getApiCallData(this.endPoint).toPromise();
-    // let getData = res;
-    // console.log("getdata",getData);
+  this.dataservice.userName = this.loginform.value.name;
     
-  
   let loginData = this.getApiData.find((ele:any)=>{
    return ele.name === this.loginform.value.name && ele.Password === this.loginform.value.password
   })
   if(loginData){
-    
+      // this.dataservice.formName = this.loginform.value.name;
     if (this.endPoint == 'admin') {
       alert('login successfully');
       this.router.navigateByUrl('/admin/loginsuccess')
@@ -59,9 +55,6 @@ export class SignInComponent {
     else {
       this.router.navigateByUrl('/user/loginsuccess')
     }
-
-    // alert('login successfully');
-    // this.router.navigateByUrl('/loginsuccess')
   }
   else{
     alert('User Not Found')
@@ -70,6 +63,7 @@ export class SignInComponent {
  }
  back(){
   this.dataservice.signInOrSignUp;
+
   if( this.endPoint === 'admin'){
     this.router.navigateByUrl('/admin')
   }
@@ -79,5 +73,8 @@ export class SignInComponent {
   else{
     this.router.navigateByUrl('/user')
   }
+ }
+ visiblity(){
+  this.showPassword = !this.showPassword;
  }
 }

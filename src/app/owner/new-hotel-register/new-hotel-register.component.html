@@ -71,7 +71,8 @@
     <mat-checkbox formControlName="nonAc">Non-AC</mat-checkbox> <br>
   -->
   
-  <button  mat-raised-button color="warn" [disabled]="hotelRegistration.invalid" (click)="submit()">Submit</button>
+  <button *ngIf="!isEditJourney"  mat-raised-button color="warn" [disabled]="hotelRegistration.invalid" (click)="submit()">Submit</button>
+  <button  *ngIf="isEditJourney"  mat-raised-button color="warn" [disabled]="hotelRegistration.invalid" (click)="submit()">Update</button>
 
 
 

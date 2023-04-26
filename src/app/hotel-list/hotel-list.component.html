@@ -10,7 +10,7 @@
       <th  *ngFor="let heading of headings" scope="col">{{heading}}</th>
       <th *ngIf="endpoint=='admin'">Delete</th>
       <th *ngIf="endpoint=='admin'">Edit</th>
-      <th *ngIf="endpoint=='user'">Book Hotel</th>
+      <th *ngIf="endpoint != 'admin'">Book Hotel</th>
    </tr>
   </thead>
   <tbody>
@@ -23,9 +23,9 @@
       <td class="table-primary" >{{hotelData.hotelEmail}}</td>
       <td class="table-success">{{hotelData.totalRooms}}</td>
       <td class="table-warning" >{{hotelData.speciality}}</td>
-      <td scope="row" *ngIf="endpoint =='admin'"> <i class="material-icons" (click)="delete(hotelData.id)">delete</i></td>
+      <button  *ngIf="endpoint =='admin'"> <i class="material-icons" (click)="delete(hotelData.id)">delete</i></button>
       <td scope="row" *ngIf="endpoint =='admin'"> <i class="material-icons" (click)="editJourney(hotelData.id)">edit</i></td>
-      <td scope="row" *ngIf="endpoint =='user'" a routerLink="/user/hotelBooking">Book Hotel Here</td>
+      <button  *ngIf="endpoint !='admin' " a routerLink="/user/hotelBooking">Book Hotel</button>
 
     </tr>
   </tbody>

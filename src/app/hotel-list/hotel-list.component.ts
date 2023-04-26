@@ -59,7 +59,7 @@ ngOnInit(){
       this.router.navigateByUrl('/owner/loginsuccess');
     }
     else {
-      this.router.navigateByUrl('/owner/loginsuccess');
+      this.router.navigateByUrl('/user/loginsuccess');
     }
   }
 
