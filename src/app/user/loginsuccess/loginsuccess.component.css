@@ -1,0 +1,16 @@
+.user-Login{
+    /* background-color: lavender; */
+    background-image: url('../../../assets/Images/costa-adeje.jpg');
+    background-size: cover;
+    min-height: auto;
+    height: 100%;
+}
+button{
+    margin: 10px;
+}
+h1{
+    color: hsl(210, 50%, 98%);
+    text-align: center;
+    font-size: 50px;
+    
+}

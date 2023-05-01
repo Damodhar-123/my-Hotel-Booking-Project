@@ -3,12 +3,6 @@
 td:hover{
     cursor: pointer;
 }
-
-.example-card {
-    max-width: 450px;
-    margin: 10px;
-    background-color: aquamarine;
-  }
   .ownerLoginPage{
     background-color: aliceblue;
     background-size: cover;
@@ -16,7 +10,13 @@ td:hover{
     background-image: url("../../../assets/Images/abstract-butterfly.jpg");
 
   }
-  /* body { background-image: url("../../../assets/Images/abstract-butterfly.jpg"); }; */
+  button{
+    margin: 10px;
+  }
+  h2{
+    margin: 30px;
+    font-size: 40px;
+  }
     
   
   

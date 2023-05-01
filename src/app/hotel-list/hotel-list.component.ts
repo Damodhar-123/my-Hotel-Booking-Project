@@ -1,7 +1,9 @@
+import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataServiceService } from '../data-service.service';
+import { SnackbarComponent } from '../snackbar/snackbar.component';
 
 @Component({
   selector: 'app-hotel-list',
@@ -21,7 +23,7 @@ export class HotelListComponent {
  
   
   constructor(private dataservice:DataServiceService, private http:HttpClient,
-     private router: Router){}
+     private router: Router, private dialog:MatDialog){}
 
 ngOnInit(){
   this.endpoint = this.dataservice.endPoint;
@@ -36,6 +38,11 @@ ngOnInit(){
   async delete(id:any){
     await this.dataservice.deleteApiCall(this.hotelEndPoint,id).toPromise();
     this.hotelData();
+    this.dialog.open(SnackbarComponent, {
+      minWidth: '200px',
+      height:'100px',
+     
+    })
 
   }
 

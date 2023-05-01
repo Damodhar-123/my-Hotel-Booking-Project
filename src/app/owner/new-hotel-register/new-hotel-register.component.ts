@@ -14,6 +14,7 @@ export class NewHotelRegisterComponent {
   isEditJourney!:boolean;
   editId!: number;
   hotelDetailsById: any;
+  endpoint: any;
    
   constructor(private fb:FormBuilder, private dataservice:DataServiceService, private router:Router){}
 
@@ -22,6 +23,7 @@ ngOnInit(){
  this.isEditJourney = this.dataservice.editJourney;
  this.editId = this.dataservice.editId;  
  this.hotelDetailsById = this.dataservice.hotelDetailsById;
+  this.endpoint = this.dataservice.endPoint;
 
  if (this.isEditJourney) {
   console.log(' this.hotelDetailsById', this.hotelDetailsById);
@@ -57,6 +59,7 @@ submit(){
    if(this.isEditJourney == false){
     this.dataservice.postApiCall(endPoint,this.hotelRegistration.value).subscribe(res=>{})
     console.log(this.hotelRegistration.value);
+    alert('Hotel Details Submit Successfuly');
     
    }
   // this.dataservice.postApiCall(endPoint,this.hotelRegistration.value).subscribe(res=>{})
@@ -86,6 +89,17 @@ this.endPoint = this.dataservice.endPoint;
  }
 
    
+}
+Back(){
+  if (this.endpoint == 'admin') {
+    this.router.navigateByUrl('/admin/loginsuccess');
+  }
+  else if (this.endpoint == 'owner') {
+    this.router.navigateByUrl('/owner/loginsuccess');
+  }
+  else {
+    this.router.navigateByUrl('/user/loginsuccess');
+  }
 }
 
 }

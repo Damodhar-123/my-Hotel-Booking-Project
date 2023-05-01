@@ -19,7 +19,8 @@ import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { SearchtextPipe } from './searchtext.pipe';
 import { MatTableModule } from '@angular/material/table';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import{ MatDialogModule} from '@angular/material/dialog';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SignInComponent,
     SignUpComponent,
     HotelListComponent,
-    SearchtextPipe
+    SearchtextPipe,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     MatTableModule,
     NgbModule,
+    MatDialogModule
+    
     
     
   ],
