@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { SnackbarComponent } from './snackbar/snackbar.component';
+
 
 const routes: Routes = [ 
   {path: '', component:HomeComponent},
@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:'signup',component:SignUpComponent},
   {path : 'signin', component:SignInComponent},
   {path:'hotel-list',component:HotelListComponent},
-  {path: 'snackbar',component: SnackbarComponent},
+  
 
  
 

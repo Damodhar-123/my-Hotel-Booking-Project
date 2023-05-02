@@ -20,7 +20,7 @@ import { SearchtextPipe } from './searchtext.pipe';
 import { MatTableModule } from '@angular/material/table';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import{ MatDialogModule} from '@angular/material/dialog';
-import { SnackbarComponent } from './snackbar/snackbar.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     SignUpComponent,
     HotelListComponent,
     SearchtextPipe,
-    SnackbarComponent
+  
   ],
   imports: [
     BrowserModule,

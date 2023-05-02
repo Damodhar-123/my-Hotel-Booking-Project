@@ -12,6 +12,7 @@ import { DataServiceService } from 'src/app/data-service.service';
 export class HotelBookingComponent {
   bookHotel!: FormGroup;
   rooms = ['Single Room A/C','Single Room Non-A/C','Double Bed Room A/C','Double Bed Room Non-A/C'];
+  showPassword: boolean = false;
   
   constructor( private dataservice:DataServiceService, private fb:FormBuilder, private router:Router){
 
@@ -29,14 +30,19 @@ export class HotelBookingComponent {
       roomTypes:[''],
       checkIn: [''],
       checkOut:[''],
-      amount:['2000',[Validators.required]],
+      amount:['',[Validators.required]],
       
     })
 
   }
   submit(){
     this.dataservice.postApiCall('hotelBooking',this.bookHotel.value).subscribe(res=>{})
+    alert('Hotel Booked Successfully ')
     this.router.navigateByUrl('/user/loginsuccess')
+  }
+
+  visiblity(){
+    this.showPassword = !this.showPassword;
   }
 
 }

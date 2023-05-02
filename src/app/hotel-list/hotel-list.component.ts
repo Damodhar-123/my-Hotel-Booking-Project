@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataServiceService } from '../data-service.service';
-import { SnackbarComponent } from '../snackbar/snackbar.component';
+
 
 @Component({
   selector: 'app-hotel-list',
@@ -31,21 +31,22 @@ ngOnInit(){
 }
   async hotelData(){
     this.hotelDetails =  await this.dataservice.getApiCallData(this.hotelEndPoint).toPromise()
-
     console.log('hotelDetails',this.hotelDetails);
     
   }
   async delete(id:any){
+    if(confirm('Do you really want to Delete this Hotel ?')){
     await this.dataservice.deleteApiCall(this.hotelEndPoint,id).toPromise();
+    alert('Hotel Deleted Successfuly')
     this.hotelData();
-    this.dialog.open(SnackbarComponent, {
-      minWidth: '200px',
-      height:'100px',
-     
-    })
-
+    
+    }
+    else{
+      console.log('hotel not delete');
+      
+    }
   }
-
+   
     async editJourney(id:number){
       this.dataservice.editId = id;
       this.dataservice.editJourney = true;

@@ -11,9 +11,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import {  MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     UserComponent,
@@ -31,7 +32,9 @@ import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
     MatFormFieldModule,
     MatSelectModule,
     MatNativeDateModule,
-    NgbDatepicker
+    NgbDatepicker,
+    MatDatepickerModule,
+    MatIconModule
     
   
     

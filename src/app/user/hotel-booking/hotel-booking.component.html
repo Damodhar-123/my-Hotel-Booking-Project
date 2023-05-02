@@ -21,7 +21,8 @@
 
 <mat-form-field>
   <mat-label>Password:</mat-label>
-    <input matInput  formControlName="password" >
+    <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" >
+    <mat-icon matSuffix (click)="visiblity()">visibility</mat-icon>
     <mat-error *ngIf="bookHotel.get('password')?.touched && bookHotel.get('password')?.errors?.['required']">Password is Required</mat-error>
     <mat-error *ngIf="bookHotel.get('password')?.errors?.['minlength']">Minimun 08 Digits Required</mat-error>
 </mat-form-field><br>
@@ -57,13 +58,18 @@
   </mat-select>
 </mat-form-field>
   <br>
-  <mat-form-field>
-  <mat-label>CheckIn Date:</mat-label>
-  <input matInput type="date" formControlName="checkIn">
-</mat-form-field><br>
+  <mat-form-field appearance="fill">
+    <mat-label>CheckIn Date:</mat-label>
+    <input matInput  [matDatepicker]="picker" formControlName="checkIn">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+ 
 <mat-form-field>
   <mat-label>CheckOut Date:</mat-label>
-  <input matInput type="date" formControlName="checkOut">
+  <input matInput [matDatepicker]="picker1" formControlName="checkOut">
+  <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
 </mat-form-field><br>
 
 

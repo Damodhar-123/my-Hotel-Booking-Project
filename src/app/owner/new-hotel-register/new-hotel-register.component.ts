@@ -62,8 +62,6 @@ submit(){
     alert('Hotel Details Submit Successfuly');
     
    }
-  // this.dataservice.postApiCall(endPoint,this.hotelRegistration.value).subscribe(res=>{})
-  // console.log(this.hotelRegistration.value);
 else{  
   // if edit details Patch Api Call
   let data = {
